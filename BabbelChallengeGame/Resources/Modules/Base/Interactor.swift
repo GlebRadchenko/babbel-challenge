@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Interactor: ViperComponent {
+protocol Interactor: ViperComponent, Initializable {
     associatedtype Presenter
     
     var output: Presenter! { get set }

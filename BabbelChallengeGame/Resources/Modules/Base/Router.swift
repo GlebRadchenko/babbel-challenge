@@ -7,20 +7,21 @@
 //
 
 import Foundation
+import UIKit
 
 struct Module<R: Router> {
-    var view: R.V
+    weak var view: R.V?
     weak var interactor: R.I?
     weak var presenter: R.P?
     weak var router: R?
 }
 
-protocol Router: class, InstanceInitializable, SpecificCastable {
+protocol Router: ViperComponent, Initializable {
     associatedtype V: View
     associatedtype I: Interactor
     associatedtype P: Presenter
     
-    init()
+    var module: Module<Self>? { get set }
 }
 
 extension Router {
@@ -38,6 +39,22 @@ extension Router {
         
         i.output = try p.specific()
         
-        return Module(view: v, interactor: i, presenter: p, router: r)
+        let module = Module(view: v, interactor: i, presenter: p, router: r)
+        
+        r.module = module
+        
+        return module
+    }
+}
+
+extension Router where V: UIViewController {
+    @discardableResult
+    static func module(displayedIn window: UIWindow) throws -> Module<Self> {
+        let m = try module()
+        
+        window.rootViewController = m.view
+        window.makeKeyAndVisible()
+        
+        return m
     }
 }

@@ -10,8 +10,18 @@ import Foundation
 
 protocol ViperComponent: class, InstanceInitializable, SpecificCastable { }
 
+protocol Initializable {
+    init()
+}
+
 protocol InstanceInitializable {
     static func instance() -> Self
+}
+
+extension InstanceInitializable where Self: Initializable {
+    static func instance() -> Self {
+        return Self()
+    }
 }
 
 protocol SpecificCastable {

@@ -36,6 +36,11 @@
 		F7EAE66F215FA8F3001F5660 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE66E215FA8F3001F5660 /* View.swift */; };
 		F7EAE671215FA98E001F5660 /* ViperComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE670215FA98E001F5660 /* ViperComponent.swift */; };
 		F7EAE673215FAADF001F5660 /* UIStoryboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE672215FAADF001F5660 /* UIStoryboard+Extensions.swift */; };
+		F7EAE676215FAC40001F5660 /* GameScenePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE675215FAC40001F5660 /* GameScenePresenter.swift */; };
+		F7EAE678215FAC51001F5660 /* GameSceneRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE677215FAC51001F5660 /* GameSceneRouter.swift */; };
+		F7EAE67A215FAC63001F5660 /* GameSceneInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE679215FAC63001F5660 /* GameSceneInteractor.swift */; };
+		F7EAE67C215FAC8A001F5660 /* GameSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE67B215FAC8A001F5660 /* GameSceneViewController.swift */; };
+		F7EAE67E215FACAF001F5660 /* GameScene.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE67D215FACAF001F5660 /* GameScene.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +96,11 @@
 		F7EAE66E215FA8F3001F5660 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		F7EAE670215FA98E001F5660 /* ViperComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperComponent.swift; sourceTree = "<group>"; };
 		F7EAE672215FAADF001F5660 /* UIStoryboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extensions.swift"; sourceTree = "<group>"; };
+		F7EAE675215FAC40001F5660 /* GameScenePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScenePresenter.swift; sourceTree = "<group>"; };
+		F7EAE677215FAC51001F5660 /* GameSceneRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneRouter.swift; sourceTree = "<group>"; };
+		F7EAE679215FAC63001F5660 /* GameSceneInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneInteractor.swift; sourceTree = "<group>"; };
+		F7EAE67B215FAC8A001F5660 /* GameSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSceneViewController.swift; sourceTree = "<group>"; };
+		F7EAE67D215FACAF001F5660 /* GameScene.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScene.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +285,11 @@
 		F7EAE674215FAB5F001F5660 /* GameScene */ = {
 			isa = PBXGroup;
 			children = (
+				F7EAE67D215FACAF001F5660 /* GameScene.storyboard */,
+				F7EAE67B215FAC8A001F5660 /* GameSceneViewController.swift */,
+				F7EAE675215FAC40001F5660 /* GameScenePresenter.swift */,
+				F7EAE679215FAC63001F5660 /* GameSceneInteractor.swift */,
+				F7EAE677215FAC51001F5660 /* GameSceneRouter.swift */,
 			);
 			path = GameScene;
 			sourceTree = "<group>";
@@ -386,6 +401,7 @@
 				F7EAE64D215FA1C3001F5660 /* words.json in Resources */,
 				F7EAE615215F9FC7001F5660 /* LaunchScreen.storyboard in Resources */,
 				F7EAE612215F9FC7001F5660 /* Assets.xcassets in Resources */,
+				F7EAE67E215FACAF001F5660 /* GameScene.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,8 +429,10 @@
 				F7EAE659215FA296001F5660 /* LayoutSet.swift in Sources */,
 				F7EAE669215FA874001F5660 /* Presenter.swift in Sources */,
 				F7EAE671215FA98E001F5660 /* ViperComponent.swift in Sources */,
+				F7EAE67A215FAC63001F5660 /* GameSceneInteractor.swift in Sources */,
 				F7EAE65B215FA2D3001F5660 /* KeyboardManager.swift in Sources */,
 				F7EAE65F215FA33D001F5660 /* JsonDecoder+Extensions.swift in Sources */,
+				F7EAE676215FAC40001F5660 /* GameScenePresenter.swift in Sources */,
 				F7EAE640215FA093001F5660 /* WordsLoader.swift in Sources */,
 				F7EAE665215FA57D001F5660 /* BabbelWordsLoader.swift in Sources */,
 				F7EAE661215FA36B001F5660 /* BabbelApiService.swift in Sources */,
@@ -423,6 +441,7 @@
 				F7EAE65D215FA304001F5660 /* ApiService.swift in Sources */,
 				F7EAE60D215F9FC4001F5660 /* ViewController.swift in Sources */,
 				F7EAE64B215FA118001F5660 /* BuzzerGameClient.swift in Sources */,
+				F7EAE67C215FAC8A001F5660 /* GameSceneViewController.swift in Sources */,
 				F7EAE66D215FA8E0001F5660 /* Interactor.swift in Sources */,
 				F7EAE66B215FA899001F5660 /* Router.swift in Sources */,
 				F7EAE663215FA4FD001F5660 /* DiskLoader.swift in Sources */,
@@ -432,6 +451,7 @@
 				F7EAE642215FA0AB001F5660 /* Result.swift in Sources */,
 				F7EAE657215FA27D001F5660 /* HTTPMethod.swift in Sources */,
 				F7EAE60B215F9FC4001F5660 /* AppDelegate.swift in Sources */,
+				F7EAE678215FAC51001F5660 /* GameSceneRouter.swift in Sources */,
 				F7EAE66F215FA8F3001F5660 /* View.swift in Sources */,
 				F7EAE649215FA101001F5660 /* BuzzerGameSession.swift in Sources */,
 			);

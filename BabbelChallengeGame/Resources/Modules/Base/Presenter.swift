@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Presenter: ViperComponent {
+protocol Presenter: ViperComponent, Initializable {
     associatedtype View
     associatedtype Interactor
     associatedtype Router

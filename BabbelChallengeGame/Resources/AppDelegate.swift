@@ -10,10 +10,17 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
+    var window: UIWindow? = UIWindow()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        guard let window = window else { return false }
+        
+        do {
+            try GameSceneRouter.module(displayedIn: window)
+        } catch {
+            debugPrint(error.localizedDescription)
+        }
         
         return true
     }
