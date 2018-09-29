@@ -13,7 +13,6 @@ class BuzzerGameSession {
     
     fileprivate(set) var winScoreValue: Int
     fileprivate(set) var clients: [BuzzerGameClient] = []
-    fileprivate(set) var words: [WordsPair] = []
     
     fileprivate var runningLock = NSLock()
     fileprivate var _isRunning = false
@@ -70,7 +69,6 @@ class BuzzerGameSession {
     func configure(with words: [WordsPair]) {
         queue.sync {
             generator = ElementGenerator<WordsPair>(elements: words, batchSize: batchSize)
-            self.words = words
         }
     }
     
@@ -112,7 +110,11 @@ class BuzzerGameSession {
         isRunning = true
         currentRound += 1
         
-        let newWord = generator.randomElement()
+        var newWord = generator.randomElement()
+        while newWord == currentWord {
+            newWord = generator.randomElement()
+        }
+        
         currentWord = newWord
         generator.prepareBatch(base: newWord)
         
