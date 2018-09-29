@@ -23,7 +23,6 @@
 		F7EAE655215FA25E001F5660 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE654215FA25E001F5660 /* UIColor+Extensions.swift */; };
 		F7EAE657215FA27D001F5660 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE656215FA27D001F5660 /* HTTPMethod.swift */; };
 		F7EAE659215FA296001F5660 /* LayoutSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE658215FA296001F5660 /* LayoutSet.swift */; };
-		F7EAE65B215FA2D3001F5660 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE65A215FA2D3001F5660 /* KeyboardManager.swift */; };
 		F7EAE65D215FA304001F5660 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE65C215FA304001F5660 /* ApiService.swift */; };
 		F7EAE65F215FA33D001F5660 /* JsonDecoder+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE65E215FA33D001F5660 /* JsonDecoder+Extensions.swift */; };
 		F7EAE661215FA36B001F5660 /* BabbelApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE660215FA36B001F5660 /* BabbelApiService.swift */; };
@@ -47,6 +46,12 @@
 		F7EAE689215FB77B001F5660 /* GameEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE688215FB77B001F5660 /* GameEntry.storyboard */; };
 		F7EAE68B215FBA54001F5660 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE68A215FBA54001F5660 /* GameSettings.swift */; };
 		F7EAE68D215FD50D001F5660 /* ElementGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE68C215FD50D001F5660 /* ElementGenerator.swift */; };
+		F7EAE68F215FE195001F5660 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE68E215FE195001F5660 /* UIView+Extensions.swift */; };
+		F7EAE692215FF53E001F5660 /* PlayerPanelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE691215FF53E001F5660 /* PlayerPanelPresenter.swift */; };
+		F7EAE694215FF551001F5660 /* PlayerPanelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE693215FF551001F5660 /* PlayerPanelRouter.swift */; };
+		F7EAE696215FF55F001F5660 /* PlayerPanelInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE695215FF55F001F5660 /* PlayerPanelInteractor.swift */; };
+		F7EAE698215FF572001F5660 /* PlayerPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE697215FF572001F5660 /* PlayerPanelViewController.swift */; };
+		F7EAE69A215FF6C8001F5660 /* PlayerPanel.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE699215FF6C8001F5660 /* PlayerPanel.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +94,6 @@
 		F7EAE654215FA25E001F5660 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		F7EAE656215FA27D001F5660 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		F7EAE658215FA296001F5660 /* LayoutSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSet.swift; sourceTree = "<group>"; };
-		F7EAE65A215FA2D3001F5660 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		F7EAE65C215FA304001F5660 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		F7EAE65E215FA33D001F5660 /* JsonDecoder+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JsonDecoder+Extensions.swift"; sourceTree = "<group>"; };
 		F7EAE660215FA36B001F5660 /* BabbelApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabbelApiService.swift; sourceTree = "<group>"; };
@@ -113,6 +117,12 @@
 		F7EAE688215FB77B001F5660 /* GameEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameEntry.storyboard; sourceTree = "<group>"; };
 		F7EAE68A215FBA54001F5660 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
 		F7EAE68C215FD50D001F5660 /* ElementGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementGenerator.swift; sourceTree = "<group>"; };
+		F7EAE68E215FE195001F5660 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		F7EAE691215FF53E001F5660 /* PlayerPanelPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPanelPresenter.swift; sourceTree = "<group>"; };
+		F7EAE693215FF551001F5660 /* PlayerPanelRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPanelRouter.swift; sourceTree = "<group>"; };
+		F7EAE695215FF55F001F5660 /* PlayerPanelInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPanelInteractor.swift; sourceTree = "<group>"; };
+		F7EAE697215FF572001F5660 /* PlayerPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPanelViewController.swift; sourceTree = "<group>"; };
+		F7EAE699215FF6C8001F5660 /* PlayerPanel.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlayerPanel.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +229,7 @@
 				F7EAE667215FA869001F5660 /* Base */,
 				F7EAE67F215FB5E4001F5660 /* GameEntry */,
 				F7EAE674215FAB5F001F5660 /* GameScene */,
+				F7EAE690215FF51D001F5660 /* PlayerPanel */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -240,6 +251,7 @@
 				F7EAE654215FA25E001F5660 /* UIColor+Extensions.swift */,
 				F7EAE65E215FA33D001F5660 /* JsonDecoder+Extensions.swift */,
 				F7EAE672215FAADF001F5660 /* UIStoryboard+Extensions.swift */,
+				F7EAE68E215FE195001F5660 /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -262,7 +274,6 @@
 				F7EAE660215FA36B001F5660 /* BabbelApiService.swift */,
 				F7EAE662215FA4FD001F5660 /* DiskLoader.swift */,
 				F7EAE664215FA57D001F5660 /* BabbelWordsLoader.swift */,
-				F7EAE65A215FA2D3001F5660 /* KeyboardManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -318,6 +329,18 @@
 				F7EAE682215FB62D001F5660 /* GameEntryRouter.swift */,
 			);
 			path = GameEntry;
+			sourceTree = "<group>";
+		};
+		F7EAE690215FF51D001F5660 /* PlayerPanel */ = {
+			isa = PBXGroup;
+			children = (
+				F7EAE699215FF6C8001F5660 /* PlayerPanel.storyboard */,
+				F7EAE697215FF572001F5660 /* PlayerPanelViewController.swift */,
+				F7EAE691215FF53E001F5660 /* PlayerPanelPresenter.swift */,
+				F7EAE695215FF55F001F5660 /* PlayerPanelInteractor.swift */,
+				F7EAE693215FF551001F5660 /* PlayerPanelRouter.swift */,
+			);
+			path = PlayerPanel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +449,7 @@
 			files = (
 				F7EAE64D215FA1C3001F5660 /* words.json in Resources */,
 				F7EAE615215F9FC7001F5660 /* LaunchScreen.storyboard in Resources */,
+				F7EAE69A215FF6C8001F5660 /* PlayerPanel.storyboard in Resources */,
 				F7EAE612215F9FC7001F5660 /* Assets.xcassets in Resources */,
 				F7EAE689215FB77B001F5660 /* GameEntry.storyboard in Resources */,
 				F7EAE67E215FACAF001F5660 /* GameScene.storyboard in Resources */,
@@ -455,10 +479,12 @@
 			files = (
 				F7EAE659215FA296001F5660 /* LayoutSet.swift in Sources */,
 				F7EAE669215FA874001F5660 /* Presenter.swift in Sources */,
+				F7EAE692215FF53E001F5660 /* PlayerPanelPresenter.swift in Sources */,
 				F7EAE671215FA98E001F5660 /* ViperComponent.swift in Sources */,
 				F7EAE683215FB62D001F5660 /* GameEntryRouter.swift in Sources */,
 				F7EAE67A215FAC63001F5660 /* GameSceneInteractor.swift in Sources */,
-				F7EAE65B215FA2D3001F5660 /* KeyboardManager.swift in Sources */,
+				F7EAE696215FF55F001F5660 /* PlayerPanelInteractor.swift in Sources */,
+				F7EAE68F215FE195001F5660 /* UIView+Extensions.swift in Sources */,
 				F7EAE68D215FD50D001F5660 /* ElementGenerator.swift in Sources */,
 				F7EAE65F215FA33D001F5660 /* JsonDecoder+Extensions.swift in Sources */,
 				F7EAE676215FAC40001F5660 /* GameScenePresenter.swift in Sources */,
@@ -468,6 +494,7 @@
 				F7EAE647215FA0DB001F5660 /* WordsPair.swift in Sources */,
 				F7EAE644215FA0BA001F5660 /* Array+Extensions.swift in Sources */,
 				F7EAE65D215FA304001F5660 /* ApiService.swift in Sources */,
+				F7EAE698215FF572001F5660 /* PlayerPanelViewController.swift in Sources */,
 				F7EAE64B215FA118001F5660 /* BuzzerGameClient.swift in Sources */,
 				F7EAE67C215FAC8A001F5660 /* GameSceneViewController.swift in Sources */,
 				F7EAE66D215FA8E0001F5660 /* Interactor.swift in Sources */,
@@ -475,6 +502,7 @@
 				F7EAE663215FA4FD001F5660 /* DiskLoader.swift in Sources */,
 				F7EAE653215FA23F001F5660 /* RequestConvertible.swift in Sources */,
 				F7EAE655215FA25E001F5660 /* UIColor+Extensions.swift in Sources */,
+				F7EAE694215FF551001F5660 /* PlayerPanelRouter.swift in Sources */,
 				F7EAE673215FAADF001F5660 /* UIStoryboard+Extensions.swift in Sources */,
 				F7EAE642215FA0AB001F5660 /* Result.swift in Sources */,
 				F7EAE687215FB65A001F5660 /* GameEntryViewController.swift in Sources */,

@@ -13,8 +13,37 @@ class BuzzerGameClient {
     
     weak var session: BuzzerGameSession?
     
+    var isWinner = false {
+        didSet {
+            onUpdateWinner?(isWinner)
+        }
+    }
+    
+    var wrongCount = 0 {
+        didSet {
+            onUpdateStats?()
+        }
+    }
+    
+    var correctCount = 0 {
+        didSet {
+            onUpdateStats?()
+        }
+    }
+    
+    var statisticString: String {
+        return "W: \(wrongCount), C: \(correctCount)"
+    }
+    
+    var onUpdateStats: (() -> Void)?
+    var onUpdateWinner: ((Bool) -> Void)?
+    
     init(session: BuzzerGameSession) {
         self.session = session
+    }
+    
+    func buzz() -> AnswerResult {
+        return session?.processBuzz(from: self) ?? .none
     }
 }
 
@@ -26,4 +55,10 @@ extension BuzzerGameClient: Hashable {
     static func == (lhs: BuzzerGameClient, rhs: BuzzerGameClient) -> Bool {
         return lhs.identifier == rhs.identifier
     }
+}
+
+enum AnswerResult {
+    case none
+    case wrong
+    case correct
 }

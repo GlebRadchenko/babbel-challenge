@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 protocol GameSceneRouterInput: class {
     func performClose()
+    func playerPanel(for client: BuzzerGameClient) -> UIViewController?
 }
 
 final class GameSceneRouter: Router, GameSceneRouterInput {
@@ -27,6 +29,15 @@ final class GameSceneRouter: Router, GameSceneRouterInput {
         let m = try module()
         m.presenter?.settings = settings
         return m
+    }
+    
+    func playerPanel(for client: BuzzerGameClient) -> UIViewController? {
+        do {
+            return try PlayerPanelRouter.module(with: client).view
+        } catch {
+            debugPrint(error.localizedDescription)
+            return nil
+        }
     }
     
     func performClose() {

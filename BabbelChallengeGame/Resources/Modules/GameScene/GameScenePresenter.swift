@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol GameScenePresenterModuleInput {
-    
-}
-
 class GameScenePresenter: Presenter, Initializable {
     typealias View = GameSceneViewInput
     typealias Interactor = GameSceneInteractorInput
@@ -25,13 +21,12 @@ class GameScenePresenter: Presenter, Initializable {
     
     deinit { debugPrint("\(type(of: self)) deinited") }
     
-    required init() {
-        
-    }
+    required init() { }
     
     fileprivate func loadClientModules() {
         let clients = interactor.gameClients()
-        
+        let panels = clients.compactMap { router?.playerPanel(for: $0) }
+        view.embedd(viewControllers: panels)
     }
     
     fileprivate func launchGameWithCountDown() {
@@ -64,10 +59,6 @@ class GameScenePresenter: Presenter, Initializable {
     }
 }
 
-extension GameScenePresenter: GameScenePresenterModuleInput {
-    
-}
-
 extension GameScenePresenter: GameSceneViewOutput {
     func viewDidLoad() {
         interactor.prepareGame(for: settings)
@@ -80,6 +71,10 @@ extension GameScenePresenter: GameSceneViewOutput {
 }
 
 extension GameScenePresenter: GameSceneInteractorOutput {
+    var wordEmittingTime: TimeInterval {
+        return 3
+    }
+    
     func handleGameStartPreparing() {
         DispatchQueue.main.async { [weak self] in
             guard let wSelf = self else { return }
@@ -107,15 +102,15 @@ extension GameScenePresenter: GameSceneInteractorOutput {
     }
     
     func handleNextWord(_ word: WordsPair) {
-        //display word at center of view
+        view.setCentralText(word.engText)
     }
     
     func handleNextPossibleWord(_ word: WordsPair) {
-        view.setStatusText(word.engText)
-        //emit word value in view
+        view.emitTextRandomly(word.spaText, duration: .random(in: 2...wordEmittingTime))
     }
     
     func handleGameFinished() {
-        //find winner and close
+        view.setStatusText("Game finished!")
+        view.setCentralText("")
     }
 }

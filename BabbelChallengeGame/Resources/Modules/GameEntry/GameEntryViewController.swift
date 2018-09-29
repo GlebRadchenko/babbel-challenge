@@ -107,7 +107,7 @@ extension GameEntryViewController: GameEntryViewInput {
         
         button.alpha = 0
         button.setAttributedTitle(title, for: .normal)
-        button.backgroundColor = UIColor(red: 47, green: 50, blue: 80)
+        button.backgroundColor = UIColor.defaultColor
         button.layer.cornerRadius = 4
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor

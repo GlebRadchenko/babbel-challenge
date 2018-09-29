@@ -25,7 +25,7 @@ protocol Router: ViperComponent, Initializable {
 }
 
 extension Router {
-    static func module() throws -> Module<Self>  {
+    static func module() throws -> Module<Self> {
         let v = V.instance()
         let i = I.instance()
         let p = P.instance()

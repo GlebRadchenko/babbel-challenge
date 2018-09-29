@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct WordsPair: Codable {
+struct WordsPair: Codable, Equatable {
     var engText: String
     var spaText: String
     

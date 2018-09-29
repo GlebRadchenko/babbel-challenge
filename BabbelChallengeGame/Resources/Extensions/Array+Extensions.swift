@@ -20,6 +20,13 @@ extension Array {
         return container
     }
     
+    public func removingRandomValue() -> [Element] {
+        var array = self
+        array.removeRandomValue()
+        return array
+    }
+    
+    @discardableResult
     public mutating func removeRandomValue() -> Element {
         let randomIndex = Int(arc4random_uniform(UInt32(count)))
         return remove(at: randomIndex)

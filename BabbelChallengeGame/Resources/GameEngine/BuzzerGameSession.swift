@@ -15,9 +15,6 @@ class BuzzerGameSession {
     fileprivate(set) var clients: [BuzzerGameClient] = []
     fileprivate(set) var words: [WordsPair] = []
     
-    fileprivate var engKeyedWords: [String: WordsPair] = [:]
-    fileprivate var spaKeyedWords: [String: WordsPair] = [:]
-    
     fileprivate var runningLock = NSLock()
     fileprivate var _isRunning = false
     fileprivate(set) var isRunning: Bool {
@@ -73,41 +70,68 @@ class BuzzerGameSession {
     func configure(with words: [WordsPair]) {
         queue.sync {
             generator = ElementGenerator<WordsPair>(elements: words, batchSize: batchSize)
-            
             self.words = words
-            engKeyedWords = words.keyed(by: { $0.engText })
-            spaKeyedWords = words.keyed(by: { $0.spaText })
         }
     }
     
     func start() {
-        launchNextRound()
+        queue.sync { launchNextRound() }
+    }
+    
+    func processBuzz(from client: BuzzerGameClient) -> AnswerResult {
+        guard isRunning else { return .none }
+        
+        isRunning = false
+        guard let word = currentWord, let submitedWord = currentEmitingWord else {
+            return .none
+        }
+        
+        defer {
+            if client.correctCount == winScoreValue {
+                handleGameFinished()
+            } else {
+                queue.asyncAfter(deadline: .now() + 1) { [weak self] in
+                    guard let wSelf = self else { return }
+                    wSelf.launchNextRound()
+                }
+            }
+        }
+        
+        if word == submitedWord {
+            client.correctCount += 1
+            return .correct
+        } else {
+            client.wrongCount += 1
+            return .wrong
+        }
     }
     
     fileprivate func launchNextRound() {
         guard !isRunning else { return }
         
-        queue.sync {
-            isRunning = true
-            currentRound += 1
-            
-            let newWord = generator.randomElement()
-            currentWord = newWord
-            generator.prepareBatch(base: newWord)
-            
-            startEmittingPossibleWords()
-        }
+        isRunning = true
+        currentRound += 1
+        
+        let newWord = generator.randomElement()
+        currentWord = newWord
+        generator.prepareBatch(base: newWord)
+        
+        startEmittingPossibleWords()
     }
     
-    fileprivate func handleRoundEnded() {
-        queue.sync {
-            isRunning = false
+    fileprivate func handleGameFinished() {
+        clients.forEach { (client) in
+            client.isWinner = winScoreValue == client.correctCount
         }
+        
+        onGameFinished?()
+        timer?.invalidate()
     }
     
     fileprivate func startEmittingPossibleWords() {
         let time = wordEmitTime
         
+        timer?.invalidate()
         DispatchQueue.main.async { [weak self] in
             guard let wSelf = self else { return }
             wSelf.timer = Timer.scheduledTimer(withTimeInterval: time, repeats: true) { (_) in

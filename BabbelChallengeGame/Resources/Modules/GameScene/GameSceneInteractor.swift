@@ -15,6 +15,8 @@ protocol GameSceneInteractorInput: class {
 }
 
 protocol GameSceneInteractorOutput: class {
+    var wordEmittingTime: TimeInterval { get }
+    
     func handleGameStartPreparing()
     func handleGameStopPreparing()
     func handle(error: Error)
@@ -39,6 +41,7 @@ class GameSceneInteractor: Interactor {
     }
     
     fileprivate func configureGameSession() {
+        gameSession?.wordEmitTime = output.wordEmittingTime
         gameSession?.batchSize = 5
         gameSession?.onNextRound = { [weak self] (round) in
             guard let wSelf = self else { return }

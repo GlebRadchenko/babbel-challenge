@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j9F-cs-MVz">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player Panel View Controller-->
+        <scene sceneID="h9M-ci-ahN">
+            <objects>
+                <viewController id="j9F-cs-MVz" customClass="PlayerPanelViewController" customModule="BabbelChallengeGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6aV-NM-Dv6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMk-3n-RUi">
+                                <rect key="frame" x="8" y="627" width="359" height="32"/>
+                                <color key="backgroundColor" red="0.1843137255" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="BUZZ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buzzButtonTouched:" destination="j9F-cs-MVz" eventType="touchUpInside" id="CEE-Zw-kKT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W: 0, L: 0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEa-dA-hbk">
+                                <rect key="frame" x="8" y="593" width="359" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.1843137255" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7oe-Su-U20">
+                                <rect key="frame" x="187.5" y="343.5" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TEa-dA-hbk" firstAttribute="leading" secondItem="Mvm-2k-RCX" secondAttribute="leading" constant="8" id="3bY-e4-PH7"/>
+                            <constraint firstItem="Mvm-2k-RCX" firstAttribute="trailing" secondItem="TEa-dA-hbk" secondAttribute="trailing" constant="8" id="3lb-l2-PUC"/>
+                            <constraint firstItem="Mvm-2k-RCX" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="GMk-3n-RUi" secondAttribute="trailing" priority="750" constant="8" id="K2e-8t-9y9"/>
+                            <constraint firstItem="GMk-3n-RUi" firstAttribute="top" secondItem="TEa-dA-hbk" secondAttribute="bottom" constant="16" id="KSZ-T1-ZUQ"/>
+                            <constraint firstItem="7oe-Su-U20" firstAttribute="centerY" secondItem="Mvm-2k-RCX" secondAttribute="centerY" id="OKX-Kg-4ZN"/>
+                            <constraint firstItem="Mvm-2k-RCX" firstAttribute="bottom" secondItem="GMk-3n-RUi" secondAttribute="bottom" constant="8" id="Rm6-jC-MRX"/>
+                            <constraint firstItem="GMk-3n-RUi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mvm-2k-RCX" secondAttribute="leading" priority="750" constant="8" id="cis-J4-gi2"/>
+                            <constraint firstItem="7oe-Su-U20" firstAttribute="centerX" secondItem="Mvm-2k-RCX" secondAttribute="centerX" id="gYL-6p-4ll"/>
+                            <constraint firstItem="GMk-3n-RUi" firstAttribute="centerX" secondItem="Mvm-2k-RCX" secondAttribute="centerX" id="wzc-Io-D3Z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mvm-2k-RCX"/>
+                    </view>
+                    <connections>
+                        <outlet property="buzzButton" destination="GMk-3n-RUi" id="br4-Az-G33"/>
+                        <outlet property="statisticLabel" destination="TEa-dA-hbk" id="tWo-Gw-6bs"/>
+                        <outlet property="statusLabel" destination="7oe-Su-U20" id="biy-is-Alh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iSI-ZV-T6P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="206"/>
+        </scene>
+    </scenes>
+</document>
