@@ -19,4 +19,9 @@ extension Array {
         
         return container
     }
+    
+    public mutating func removeRandomValue() -> Element {
+        let randomIndex = Int(arc4random_uniform(UInt32(count)))
+        return remove(at: randomIndex)
+    }
 }

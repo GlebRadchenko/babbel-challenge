@@ -46,6 +46,7 @@
 		F7EAE687215FB65A001F5660 /* GameEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE686215FB65A001F5660 /* GameEntryViewController.swift */; };
 		F7EAE689215FB77B001F5660 /* GameEntry.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7EAE688215FB77B001F5660 /* GameEntry.storyboard */; };
 		F7EAE68B215FBA54001F5660 /* GameSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE68A215FBA54001F5660 /* GameSettings.swift */; };
+		F7EAE68D215FD50D001F5660 /* ElementGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EAE68C215FD50D001F5660 /* ElementGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		F7EAE686215FB65A001F5660 /* GameEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEntryViewController.swift; sourceTree = "<group>"; };
 		F7EAE688215FB77B001F5660 /* GameEntry.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameEntry.storyboard; sourceTree = "<group>"; };
 		F7EAE68A215FBA54001F5660 /* GameSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettings.swift; sourceTree = "<group>"; };
+		F7EAE68C215FD50D001F5660 /* ElementGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 		F7EAE63B215FA05C001F5660 /* GameEngine */ = {
 			isa = PBXGroup;
 			children = (
+				F7EAE68C215FD50D001F5660 /* ElementGenerator.swift */,
 				F7EAE648215FA101001F5660 /* BuzzerGameSession.swift */,
 				F7EAE64A215FA118001F5660 /* BuzzerGameClient.swift */,
 			);
@@ -456,6 +459,7 @@
 				F7EAE683215FB62D001F5660 /* GameEntryRouter.swift in Sources */,
 				F7EAE67A215FAC63001F5660 /* GameSceneInteractor.swift in Sources */,
 				F7EAE65B215FA2D3001F5660 /* KeyboardManager.swift in Sources */,
+				F7EAE68D215FD50D001F5660 /* ElementGenerator.swift in Sources */,
 				F7EAE65F215FA33D001F5660 /* JsonDecoder+Extensions.swift in Sources */,
 				F7EAE676215FAC40001F5660 /* GameScenePresenter.swift in Sources */,
 				F7EAE640215FA093001F5660 /* WordsLoader.swift in Sources */,

@@ -55,7 +55,7 @@
                                 <color key="tintColor" red="0.1843137255" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="icon-close"/>
                                 <connections>
-                                    <action selector="closeButtonTouched:" destination="Ae4-OR-uwB" eventType="touchUpInside" id="BzR-JG-4Ta"/>
+                                    <action selector="closeButtonTouched:" destination="Ae4-OR-uwB" eventType="touchUpInside" id="eei-Nk-VYF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -72,6 +72,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zQb-TM-gKh"/>
                     </view>
+                    <connections>
+                        <outlet property="statusLabel" destination="yZM-iu-U1e" id="7Z2-DG-T5R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrX-0r-kzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

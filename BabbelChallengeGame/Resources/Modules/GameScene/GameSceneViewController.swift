@@ -9,7 +9,7 @@
 import UIKit
 
 protocol GameSceneViewInput: class {
-    
+    func setStatusText(_ text: String)
 }
 
 protocol GameSceneViewOutput {
@@ -17,8 +17,10 @@ protocol GameSceneViewOutput {
     func handleClose()
 }
 
-class GameSceneViewController: UIViewController, View, GameSceneViewInput {
+class GameSceneViewController: UIViewController, View {
     typealias Presenter = GameSceneViewOutput
+    
+    @IBOutlet weak var statusLabel: UILabel!
     
     var output: GameSceneViewOutput!
     
@@ -31,5 +33,11 @@ class GameSceneViewController: UIViewController, View, GameSceneViewInput {
     
     @IBAction func closeButtonTouched(_ sender: UIButton) {
         output?.handleClose()
+    }
+}
+
+extension GameSceneViewController: GameSceneViewInput {
+    func setStatusText(_ text: String) {
+        statusLabel.text = text
     }
 }
