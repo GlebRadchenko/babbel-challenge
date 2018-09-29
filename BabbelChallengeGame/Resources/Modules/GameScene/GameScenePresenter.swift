@@ -21,6 +21,8 @@ class GameScenePresenter: Presenter, Initializable {
     var interactor: GameSceneInteractorInput!
     var router: GameSceneRouterInput!
     
+    var settings: GameSettings = GameSettings()
+    
     deinit { debugPrint("\(type(of: self)) deinited") }
     
     required init() {
@@ -35,6 +37,10 @@ extension GameScenePresenter: GameScenePresenterModuleInput {
 extension GameScenePresenter: GameSceneViewOutput {
     func viewDidLoad() {
         
+    }
+    
+    func handleClose() {
+        router?.performClose()
     }
 }
 

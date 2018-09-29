@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E2H-2P-TDG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game Entry View Controller-->
+        <scene sceneID="teX-1f-QOx">
+            <objects>
+                <viewController id="E2H-2P-TDG" customClass="GameEntryViewController" customModule="BabbelChallengeGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yrg-qJ-KdU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Buzzer Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvj-fa-bqS">
+                                <rect key="frame" x="121" y="24" width="133" height="26"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="NO6-1f-mw9">
+                                <rect key="frame" x="62.5" y="149" width="250" height="160"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-MN-H6x">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="78.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Chose player count:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05e-xF-Yjq">
+                                                <rect key="frame" x="4" y="4" width="135" height="17.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="1" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="6jC-xN-q9l">
+                                                <rect key="frame" x="78" y="37.5" width="94" height="29"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="stepperValueChanged:" destination="E2H-2P-TDG" eventType="valueChanged" id="mvx-Yr-52E"/>
+                                                </connections>
+                                            </stepper>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="05e-xF-Yjq" firstAttribute="top" secondItem="d1b-MN-H6x" secondAttribute="top" constant="4" id="0pG-KZ-k1J"/>
+                                            <constraint firstItem="6jC-xN-q9l" firstAttribute="top" secondItem="05e-xF-Yjq" secondAttribute="bottom" constant="16" id="7C5-94-dHJ"/>
+                                            <constraint firstItem="6jC-xN-q9l" firstAttribute="centerX" secondItem="d1b-MN-H6x" secondAttribute="centerX" id="T7K-od-21T"/>
+                                            <constraint firstAttribute="bottom" secondItem="6jC-xN-q9l" secondAttribute="bottom" constant="16" id="dFo-K1-mHV"/>
+                                            <constraint firstItem="05e-xF-Yjq" firstAttribute="leading" secondItem="d1b-MN-H6x" secondAttribute="leading" constant="4" id="oTH-zR-pNM"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fIp-sw-ORW">
+                                        <rect key="frame" x="0.0" y="82.5" width="250" height="77.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Play until score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zH5-rO-FON">
+                                                <rect key="frame" x="4" y="4" width="106.5" height="17.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minimumValue="1" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="mFa-hG-NJg">
+                                                <rect key="frame" x="78" y="37.5" width="94" height="29"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="stepperValueChanged:" destination="E2H-2P-TDG" eventType="valueChanged" id="Jue-nr-UOQ"/>
+                                                </connections>
+                                            </stepper>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="mFa-hG-NJg" firstAttribute="top" secondItem="zH5-rO-FON" secondAttribute="bottom" constant="16" id="8UD-Az-Kex"/>
+                                            <constraint firstAttribute="bottom" secondItem="mFa-hG-NJg" secondAttribute="bottom" constant="16" id="OpK-I1-4Uk"/>
+                                            <constraint firstItem="mFa-hG-NJg" firstAttribute="centerX" secondItem="fIp-sw-ORW" secondAttribute="centerX" id="Q7n-WH-H4a"/>
+                                            <constraint firstItem="zH5-rO-FON" firstAttribute="top" secondItem="fIp-sw-ORW" secondAttribute="top" constant="4" id="V6J-CC-HWa"/>
+                                            <constraint firstItem="zH5-rO-FON" firstAttribute="leading" secondItem="fIp-sw-ORW" secondAttribute="leading" constant="4" id="XSH-nn-tnp"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="JTR-mr-nLA"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1843137255" green="0.1960784314" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cvj-fa-bqS" firstAttribute="centerX" secondItem="J1M-Lb-Fij" secondAttribute="centerX" id="DCl-0e-Mrg"/>
+                            <constraint firstItem="cvj-fa-bqS" firstAttribute="top" secondItem="J1M-Lb-Fij" secondAttribute="top" constant="4" id="DZq-rE-W2O"/>
+                            <constraint firstItem="NO6-1f-mw9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cvj-fa-bqS" secondAttribute="bottom" constant="16" id="IEi-KA-Nh9"/>
+                            <constraint firstItem="NO6-1f-mw9" firstAttribute="centerX" secondItem="J1M-Lb-Fij" secondAttribute="centerX" id="bEz-g4-Ooo"/>
+                            <constraint firstItem="NO6-1f-mw9" firstAttribute="width" secondItem="yrg-qJ-KdU" secondAttribute="width" multiplier="2/3" id="dEn-tZ-LoS"/>
+                            <constraint firstItem="NO6-1f-mw9" firstAttribute="centerY" secondItem="J1M-Lb-Fij" secondAttribute="centerY" multiplier="2/3" priority="750" id="pzc-N0-UYA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J1M-Lb-Fij"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentStackView" destination="NO6-1f-mw9" id="Kv6-hQ-wV1"/>
+                        <outlet property="playUntilLabel" destination="zH5-rO-FON" id="79r-UC-Hqe"/>
+                        <outlet property="playUntilStepper" destination="mFa-hG-NJg" id="cRz-7s-Uhg"/>
+                        <outlet property="playerCountLabel" destination="05e-xF-Yjq" id="jDS-4h-tj9"/>
+                        <outlet property="playerCountStepper" destination="6jC-xN-q9l" id="76y-sI-HBF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8RN-ZX-iwO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="103" y="47"/>
+        </scene>
+    </scenes>
+</document>

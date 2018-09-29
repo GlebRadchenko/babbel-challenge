@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let window = window else { return false }
         
         do {
-            try GameSceneRouter.module(displayedIn: window)
+            try GameEntryRouter.module(displayedIn: window)
         } catch {
             debugPrint(error.localizedDescription)
         }

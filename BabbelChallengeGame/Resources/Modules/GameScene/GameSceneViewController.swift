@@ -14,6 +14,7 @@ protocol GameSceneViewInput: class {
 
 protocol GameSceneViewOutput {
     func viewDidLoad()
+    func handleClose()
 }
 
 class GameSceneViewController: UIViewController, View, GameSceneViewInput {
@@ -26,5 +27,9 @@ class GameSceneViewController: UIViewController, View, GameSceneViewInput {
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewDidLoad()
+    }
+    
+    @IBAction func closeButtonTouched(_ sender: UIButton) {
+        output?.handleClose()
     }
 }

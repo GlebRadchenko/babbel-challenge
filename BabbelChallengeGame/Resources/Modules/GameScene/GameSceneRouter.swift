@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GameSceneRouterInput: class {
-    
+    func performClose()
 }
 
 final class GameSceneRouter: Router, GameSceneRouterInput {
@@ -22,4 +22,14 @@ final class GameSceneRouter: Router, GameSceneRouterInput {
     deinit { debugPrint("\(type(of: self)) deinited") }
     
     required init() { }
+    
+    static func module(with settings: GameSettings) throws -> Module<GameSceneRouter> {
+        let m = try module()
+        m.presenter?.settings = settings
+        return m
+    }
+    
+    func performClose() {
+        module?.view?.dismiss(animated: true, completion: nil)
+    }
 }
