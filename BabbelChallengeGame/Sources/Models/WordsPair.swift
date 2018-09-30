@@ -9,11 +9,11 @@
 import Foundation
 
 struct WordsPair: Codable, Equatable {
-    var engText: String
-    var spaText: String
+    var englishText: String
+    var spanishText: String
     
     enum CodingKeys: String, CodingKey {
-        case engText = "text_eng"
-        case spaText = "text_spa"
+        case englishText = "text_eng"
+        case spanishText = "text_spa"
     }
 }

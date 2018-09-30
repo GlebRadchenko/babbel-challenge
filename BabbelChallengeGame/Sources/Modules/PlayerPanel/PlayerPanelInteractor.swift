@@ -32,17 +32,13 @@ class PlayerPanelInteractor: Interactor {
     required init() { }
     
     func configureClient() {
-        client?.onUpdateWinner = { [weak self] (isWinner) in
+        client?.onEvent = { [weak self] (event) in
             guard let wSelf = self else { return }
-            DispatchQueue.main.async {
-                wSelf.output?.handleWinnerStatusChanged(isWinner: isWinner)
-            }
-        }
-        
-        client?.onUpdateStats = { [weak self] in
-            guard let wSelf = self else { return }
-            DispatchQueue.main.async {
+            switch event {
+            case .statisticUpdated:
                 wSelf.output?.handleStatisticUpdate()
+            case let .winnerUpdated(isWinner):
+                wSelf.output?.handleWinnerStatusChanged(isWinner: isWinner)
             }
         }
     }

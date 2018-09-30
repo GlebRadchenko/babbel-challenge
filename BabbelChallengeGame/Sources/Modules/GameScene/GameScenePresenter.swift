@@ -102,11 +102,11 @@ extension GameScenePresenter: GameSceneInteractorOutput {
     }
     
     func handleNextWord(_ word: WordsPair) {
-        view.setCentralText(word.engText)
+        view.setCentralText(word.englishText)
     }
     
     func handleNextPossibleWord(_ word: WordsPair) {
-        view.emitTextRandomly(word.spaText, duration: .random(in: 2...wordEmittingTime))
+        view.emitTextRandomly(word.spanishText, duration: .random(in: 2...wordEmittingTime))
     }
     
     func handleGameFinished() {

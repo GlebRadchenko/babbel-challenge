@@ -10,60 +10,44 @@ import Foundation
 
 class BuzzerGameSession {
     fileprivate let queue = DispatchQueue(label: "buzzer-game-session-queue")
+    fileprivate let notifyQueue: DispatchQueue
     
     fileprivate(set) var winScoreValue: Int
     fileprivate(set) var clients: [BuzzerGameClient] = []
     
-    fileprivate var runningLock = NSLock()
-    fileprivate var _isRunning = false
-    fileprivate(set) var isRunning: Bool {
-        get {
-            runningLock.lock(); defer { runningLock.unlock() }
-            let value = _isRunning
-            return value
-        }
-        
-        set {
-            runningLock.lock()
-            _isRunning = newValue
-            runningLock.unlock()
-        }
-    }
+    fileprivate(set) var isRunning = Synchronized<Bool>(value: false)
     
     fileprivate var currentRound = 0 {
-        didSet {
-            onNextRound?(currentRound)
-        }
+        didSet { broadcast(event: .roundChanged(currentRound)) }
     }
     
     fileprivate var currentWord: WordsPair? {
         didSet {
             guard let word = currentWord else { return }
-            onNextWord?(word)
+            broadcast(event: .newCurrentWord(word))
         }
     }
     
     fileprivate var currentEmitingWord: WordsPair? {
         didSet {
             guard let word = currentEmitingWord else { return }
-            onPossibleWord?(word)
+            broadcast(event: .newProposedWord(word))
         }
     }
+    
+    var onEvent: ((Event) -> Void)?
+    var wordEmitTime: TimeInterval = 5
+    var batchSize = 5
     
     fileprivate var generator = ElementGenerator<WordsPair>()
     fileprivate var timer: Timer?
     
-    var wordEmitTime: TimeInterval = 5
-    var batchSize = 5
     
-    var onNextRound: ((Int) -> Void)?
-    var onNextWord: ((WordsPair) -> Void)?
-    var onPossibleWord: ((WordsPair) -> Void)?
-    var onGameFinished: (() -> Void)?
-    
-    init(settings: GameSettings) {
-        winScoreValue = settings.playUntilScore
-        clients = (1...settings.playerCount).map { _ in BuzzerGameClient(session: self) }
+    init(settings: GameSettings, notifyQueue: DispatchQueue = .main) {
+        self.winScoreValue = settings.playUntilScore
+        self.notifyQueue = notifyQueue
+        self.clients = (1...settings.playerCount)
+            .map { _ in BuzzerGameClient(session: self) }
     }
     
     func configure(with words: [WordsPair]) {
@@ -77,9 +61,9 @@ class BuzzerGameSession {
     }
     
     func processBuzz(from client: BuzzerGameClient) -> AnswerResult {
-        guard isRunning else { return .none }
+        guard isRunning.value else { return .none }
         
-        isRunning = false
+        isRunning.value = false
         guard let word = currentWord, let submitedWord = currentEmitingWord else {
             return .none
         }
@@ -104,10 +88,17 @@ class BuzzerGameSession {
         }
     }
     
+    fileprivate func broadcast(event: Event) {
+        notifyQueue.async { [weak self] in
+            guard let wSelf = self else { return }
+            wSelf.onEvent?(event)
+        }
+    }
+    
     fileprivate func launchNextRound() {
-        guard !isRunning else { return }
+        guard !isRunning.value else { return }
         
-        isRunning = true
+        isRunning.value = true
         currentRound += 1
         
         var newWord = generator.randomElement()
@@ -126,7 +117,7 @@ class BuzzerGameSession {
             client.isWinner = winScoreValue == client.correctCount
         }
         
-        onGameFinished?()
+        broadcast(event: .gameFinished)
         timer?.invalidate()
     }
     
@@ -144,5 +135,14 @@ class BuzzerGameSession {
             
             wSelf.timer?.fire()
         }
+    }
+}
+
+extension BuzzerGameSession {
+    enum Event {
+        case roundChanged(Int)
+        case newCurrentWord(WordsPair)
+        case newProposedWord(WordsPair)
+        case gameFinished
     }
 }

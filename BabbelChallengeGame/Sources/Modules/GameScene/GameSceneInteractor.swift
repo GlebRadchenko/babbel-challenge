@@ -43,32 +43,19 @@ class GameSceneInteractor: Interactor {
     fileprivate func configureGameSession() {
         gameSession?.wordEmitTime = output.wordEmittingTime
         gameSession?.batchSize = 5
-        gameSession?.onNextRound = { [weak self] (round) in
+        gameSession?.onEvent = { [weak self] (event) in
             guard let wSelf = self else { return }
-            DispatchQueue.main.async {
+            switch event {
+            case let .roundChanged(round):
                 wSelf.output?.handleNextRound(round: round)
-            }
-        }
-        
-        gameSession?.onNextWord = { [weak self] (word) in
-            guard let wSelf = self else { return }
-            DispatchQueue.main.async {
+            case let .newCurrentWord(word):
                 wSelf.output?.handleNextWord(word)
-            }
-        }
-        
-        gameSession?.onPossibleWord = { [weak self] (word) in
-            guard let wSelf = self else { return }
-            DispatchQueue.main.async {
+            case let .newProposedWord(word):
                 wSelf.output?.handleNextPossibleWord(word)
-            }
-        }
-        
-        gameSession?.onGameFinished = { [weak self] in
-            guard let wSelf = self else { return }
-            DispatchQueue.main.async {
+            case .gameFinished:
                 wSelf.output?.handleGameFinished()
             }
+            
         }
     }
     
