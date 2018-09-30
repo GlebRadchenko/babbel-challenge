@@ -37,6 +37,7 @@ class BuzzerGameClient {
         self.notifyQueue = notifyQueue
     }
     
+    @discardableResult
     func buzz() -> AnswerResult {
         return session?.processBuzz(from: self) ?? .none
     }

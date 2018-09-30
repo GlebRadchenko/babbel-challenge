@@ -62,13 +62,6 @@
 			remoteGlobalIDString = F7EAE606215F9FC4001F5660;
 			remoteInfo = BabbelChallengeGame;
 		};
-		F7EAE627215F9FC8001F5660 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F7EAE5FF215F9FC4001F5660 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F7EAE606215F9FC4001F5660;
-			remoteInfo = BabbelChallengeGame;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -81,7 +74,6 @@
 		F7EAE61B215F9FC8001F5660 /* BabbelChallengeGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabbelChallengeGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EAE61F215F9FC8001F5660 /* BabbelChallengeGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabbelChallengeGameTests.swift; sourceTree = "<group>"; };
 		F7EAE621215F9FC8001F5660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7EAE626215F9FC8001F5660 /* BabbelChallengeGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabbelChallengeGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EAE63F215FA093001F5660 /* WordsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsLoader.swift; sourceTree = "<group>"; };
 		F7EAE641215FA0AB001F5660 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		F7EAE643215FA0BA001F5660 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
@@ -139,13 +131,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F7EAE623215F9FC8001F5660 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -163,7 +148,6 @@
 			children = (
 				F7EAE607215F9FC4001F5660 /* BabbelChallengeGame.app */,
 				F7EAE61B215F9FC8001F5660 /* BabbelChallengeGameTests.xctest */,
-				F7EAE626215F9FC8001F5660 /* BabbelChallengeGameUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -371,24 +355,6 @@
 			productReference = F7EAE61B215F9FC8001F5660 /* BabbelChallengeGameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		F7EAE625215F9FC8001F5660 /* BabbelChallengeGameUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F7EAE635215F9FC8001F5660 /* Build configuration list for PBXNativeTarget "BabbelChallengeGameUITests" */;
-			buildPhases = (
-				F7EAE622215F9FC8001F5660 /* Sources */,
-				F7EAE623215F9FC8001F5660 /* Frameworks */,
-				F7EAE624215F9FC8001F5660 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F7EAE628215F9FC8001F5660 /* PBXTargetDependency */,
-			);
-			name = BabbelChallengeGameUITests;
-			productName = BabbelChallengeGameUITests;
-			productReference = F7EAE626215F9FC8001F5660 /* BabbelChallengeGameUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -403,10 +369,6 @@
 						CreatedOnToolsVersion = 10.0;
 					};
 					F7EAE61A215F9FC8001F5660 = {
-						CreatedOnToolsVersion = 10.0;
-						TestTargetID = F7EAE606215F9FC4001F5660;
-					};
-					F7EAE625215F9FC8001F5660 = {
 						CreatedOnToolsVersion = 10.0;
 						TestTargetID = F7EAE606215F9FC4001F5660;
 					};
@@ -427,7 +389,6 @@
 			targets = (
 				F7EAE606215F9FC4001F5660 /* BabbelChallengeGame */,
 				F7EAE61A215F9FC8001F5660 /* BabbelChallengeGameTests */,
-				F7EAE625215F9FC8001F5660 /* BabbelChallengeGameUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -447,13 +408,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F7EAE619215F9FC8001F5660 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F7EAE624215F9FC8001F5660 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -516,13 +470,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F7EAE622215F9FC8001F5660 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -530,11 +477,6 @@
 			isa = PBXTargetDependency;
 			target = F7EAE606215F9FC4001F5660 /* BabbelChallengeGame */;
 			targetProxy = F7EAE61C215F9FC8001F5660 /* PBXContainerItemProxy */;
-		};
-		F7EAE628215F9FC8001F5660 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F7EAE606215F9FC4001F5660 /* BabbelChallengeGame */;
-			targetProxy = F7EAE627215F9FC8001F5660 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -742,46 +684,6 @@
 			};
 			name = Release;
 		};
-		F7EAE636215F9FC8001F5660 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76RXYZCS9Y;
-				INFOPLIST_FILE = BabbelChallengeGameUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.babbelChallenge.BabbelChallengeGameUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BabbelChallengeGame;
-			};
-			name = Debug;
-		};
-		F7EAE637215F9FC8001F5660 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76RXYZCS9Y;
-				INFOPLIST_FILE = BabbelChallengeGameUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.babbelChallenge.BabbelChallengeGameUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = BabbelChallengeGame;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -808,15 +710,6 @@
 			buildConfigurations = (
 				F7EAE633215F9FC8001F5660 /* Debug */,
 				F7EAE634215F9FC8001F5660 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F7EAE635215F9FC8001F5660 /* Build configuration list for PBXNativeTarget "BabbelChallengeGameUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F7EAE636215F9FC8001F5660 /* Debug */,
-				F7EAE637215F9FC8001F5660 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

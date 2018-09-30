@@ -12,23 +12,23 @@ class BuzzerGameSession {
     fileprivate let queue = DispatchQueue(label: "buzzer-game-session-queue")
     fileprivate let notifyQueue: DispatchQueue
     
-    fileprivate(set) var winScoreValue: Int
+    fileprivate(set) var winScoreValue: Int = 0
     fileprivate(set) var clients: [BuzzerGameClient] = []
     
     fileprivate(set) var isRunning = Synchronized<Bool>(value: false)
     
-    fileprivate var currentRound = 0 {
+    var currentRound = 0 {
         didSet { broadcast(event: .roundChanged(currentRound)) }
     }
     
-    fileprivate var currentWord: WordsPair? {
+    var currentWord: WordsPair? {
         didSet {
             guard let word = currentWord else { return }
             broadcast(event: .newCurrentWord(word))
         }
     }
     
-    fileprivate var currentEmitingWord: WordsPair? {
+    var currentEmitingWord: WordsPair? {
         didSet {
             guard let word = currentEmitingWord else { return }
             broadcast(event: .newProposedWord(word))
@@ -42,10 +42,13 @@ class BuzzerGameSession {
     fileprivate var generator = ElementGenerator<WordsPair>()
     fileprivate var timer: Timer?
     
-    
     init(settings: GameSettings, notifyQueue: DispatchQueue = .main) {
-        self.winScoreValue = settings.playUntilScore
         self.notifyQueue = notifyQueue
+        apply(settings: settings)
+    }
+    
+    func apply(settings: GameSettings) {
+        self.winScoreValue = settings.playUntilScore
         self.clients = (1...settings.playerCount)
             .map { _ in BuzzerGameClient(session: self) }
     }
@@ -97,6 +100,7 @@ class BuzzerGameSession {
     
     fileprivate func launchNextRound() {
         guard !isRunning.value else { return }
+        guard !generator.elements.isEmpty else { return }
         
         isRunning.value = true
         currentRound += 1

@@ -11,4 +11,8 @@ import Foundation
 struct GameSettings {
     var playerCount: Int = 2
     var playUntilScore: Int = 5
+    
+    static var `default`: GameSettings {
+        return GameSettings()
+    }
 }
