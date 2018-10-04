@@ -70,20 +70,20 @@ extension GameSceneViewController: GameSceneViewInput {
         clearChildren()
         
         viewControllers.forEach { (vc) in
-            vc.willMove(toParent: self)
-            addChild(vc)
+            vc.willMove(toParentViewController: self)
+            addChildViewController(vc)
             contentStackView.addArrangedSubview(vc.view)
-            vc.didMove(toParent: self)
+            vc.didMove(toParentViewController: self)
         }
     }
     
     fileprivate func clearChildren() {
-        children.forEach { $0.willMove(toParent: nil) }
+        childViewControllers.forEach { $0.willMove(toParentViewController: nil) }
         contentStackView.arrangedSubviews.forEach { (view) in
             contentStackView.removeArrangedSubview(view)
             view.removeFromSuperview()
         }
-        children.forEach { $0.didMove(toParent: nil) }
+        childViewControllers.forEach { $0.didMove(toParentViewController: nil) }
     }
     
     func setStatusText(_ text: String) {

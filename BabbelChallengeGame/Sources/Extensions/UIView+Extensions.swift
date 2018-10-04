@@ -16,7 +16,7 @@ extension UIView {
         let move = CAKeyframeAnimation(keyPath: "position")
         move.path = generateRandomPath(for: view).cgPath
         move.duration = duration
-        move.timingFunctions = [CAMediaTimingFunction(name: .easeOut)]
+        move.timingFunctions = [CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)]
         
         let fade = CAKeyframeAnimation(keyPath: "opacity")
         fade.values = [0, 1, 1, 0]
